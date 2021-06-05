@@ -1,0 +1,10 @@
+# copywarfile.yml to the tomcat server from ansible serevr
+---
+- hosts: servers
+  become: true
+  tasks: 
+    - name: copy jar/war onto tomcat server
+      copy:
+        src: /etc/ansible/artifacts/webapp/target/webapp.war
+        dest: /usr/local/tomcat9/webapps/webapp.war
+

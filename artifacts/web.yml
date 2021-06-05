@@ -1,0 +1,5 @@
+---
+- hosts: Servers
+  roles:
+    - role: idealista.apache_httpd-role
+
