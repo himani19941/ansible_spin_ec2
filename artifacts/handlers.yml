@@ -1,0 +1,12 @@
+---
+- hosts: local
+  become: yes
+  tasks:
+    - name: copy the website config file
+      copy: src=proxy.conf dest=/etc/httpd/conf.d/proxy.conf
+      
+      notify:
+        - Apache restart
+  handlers:
+      - name: Apache restart
+        service: name=httpd state=restarted

@@ -1,0 +1,12 @@
+---
+- hosts: local
+  become: yes
+  vars_prompt:
+       name: "dbuser"
+       prompt: "Enter username of file owner"
+  tasks:
+    - file:
+        path: /tmp/newfile1.txt
+        state: touch
+        owner: "{{dbuser}}"
+      register: create
